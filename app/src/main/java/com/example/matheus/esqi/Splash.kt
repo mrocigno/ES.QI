@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.example.matheus.esqi.Connect.Connects
 import com.example.matheus.esqi.Connect.Models.DefaultModel
 import com.example.matheus.esqi.Connect.Network
+import com.example.matheus.esqi.Main.Main2Activity
 import com.example.matheus.esqi.Main.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,7 +23,7 @@ class Splash : AppCompatActivity() {
 
         waitSplash(3000, object: SplashCallBack{
             override fun onEnd() {
-                startActivity(Intent(this@Splash, MainActivity::class.java))
+                startActivity(Intent(this@Splash, Main2Activity::class.java))
                 finish()
             }
         })
@@ -35,7 +36,7 @@ class Splash : AppCompatActivity() {
 //        }.start()
 
 //        val teste = Network()
-        
+
 //        val testeRetro: Retrofit = teste.networkBase()
 //
 //        val con: Connects = testeRetro.create(Connects::class.java)
