@@ -5,8 +5,8 @@
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".Main.Main2Activity">
+    android:background="@color/colorPrimary"
+    tools:context=".Main.PerguntasActivity">
 
 
     <android.support.v4.view.ViewPager
@@ -14,6 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <ProgressBar
+        android:id="@+id/perguntas_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        app:layout_anchor="@+id/container"
+        app:layout_anchorGravity="right|center" />
 
 
 </android.support.design.widget.CoordinatorLayout>

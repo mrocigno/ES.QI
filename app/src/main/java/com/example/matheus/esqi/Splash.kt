@@ -3,17 +3,8 @@ package com.example.matheus.esqi
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
-import com.example.matheus.esqi.Connect.Connects
-import com.example.matheus.esqi.Connect.Models.DefaultModel
-import com.example.matheus.esqi.Connect.Network
-import com.example.matheus.esqi.Main.Main2Activity
 import com.example.matheus.esqi.Main.MainActivity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import com.example.matheus.esqi.Main.PerguntasActivity
 
 class Splash : AppCompatActivity() {
 
@@ -23,7 +14,7 @@ class Splash : AppCompatActivity() {
 
         waitSplash(3000, object: SplashCallBack{
             override fun onEnd() {
-                startActivity(Intent(this@Splash, Main2Activity::class.java))
+                startActivity(Intent(this@Splash, MainActivity::class.java))
                 finish()
             }
         })
@@ -35,21 +26,21 @@ class Splash : AppCompatActivity() {
 //            }
 //        }.start()
 
-//        val teste = Network()
+//
 
-//        val testeRetro: Retrofit = teste.networkBase()
 //
-//        val con: Connects = testeRetro.create(Connects::class.java)
-//        con.getPerguntas().enqueue(object: Callback<DefaultModel>{
-//            override fun onFailure(call: Call<DefaultModel>?, t: Throwable?) {
-//                Log.e("erro","asdasda", t)
-//            }
 //
-//            override fun onResponse(call: Call<DefaultModel>?, response: Response<DefaultModel>?) {
-//                Log.d("erro", response!!.body()!!.data[0].id_pergunta.toString())
-//            }
 //
-//        })
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
     }
 

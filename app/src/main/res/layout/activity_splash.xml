@@ -6,12 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Splash"
-    android:background="@android:color/white"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorPrimary"
     android:gravity="center">
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="250dp"
+        android:padding="15dp"
+        android:rotation="3"
+        android:layout_height="250dp"
+        android:background="@drawable/background_questions"
         android:src="@drawable/logo"/>
 
 </LinearLayout>
