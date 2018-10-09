@@ -58,14 +58,14 @@ class PerguntasActivity : AppCompatActivity() {
                     override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
                         if(p1 > 0.5){
                             val page : PerguntasFragment = mSectionsPagerAdapter!!.getItem(p0) as PerguntasFragment
-//                            Log.d("TESTEEE", nextPage.tt)
                             if(!page.respondida){
                                 AlertTop.CustomYesNoTopAlert(this@PerguntasActivity, "Você tem certeza?", "Se continuar a questão atual será marcada como \"Não respondida\"",
                                         R.drawable.ic_warning_black_24dp,
                                         object : AlertTop.Companion.YesNoCallBack{
                                             override fun onClickYes() {
                                                 container.currentItem = p0 + 1
-                                                page.respondida = true
+                                                page.state = "Não respondeu"
+                                                page.setAnswered()
                                             }
 
                                             override fun onClickNo() {

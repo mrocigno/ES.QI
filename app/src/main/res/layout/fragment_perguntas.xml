@@ -25,11 +25,11 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_weight="1"
         android:background="@drawable/background_questions"
         android:padding="15dp">
@@ -37,19 +37,35 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_gravity="center">
 
             <TextView
                 android:id="@+id/fperguntas_txtPergunta"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Aqui vai ficar a pergunta"
+                android:layout_height="wrap_content"
+                android:text="Aqui vai ficar a perguntas"
                 android:textAlignment="center" />
 
         </ScrollView>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/fperguntas_txtState"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignBottom="@+id/fperguntas_imgState"
+            android:layout_toStartOf="@+id/fperguntas_imgState"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/fperguntas_imgState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -85,10 +101,10 @@
                     android:layout_margin="1dp"
                     android:background="#ff9393"
                     android:gravity="center"
-                    android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
                     android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp"
                     android:text="A"
                     android:textColor="@android:color/holo_red_dark"
                     android:textStyle="bold" />
@@ -102,10 +118,10 @@
                         android:id="@+id/fperguntas_txtA"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
                         android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="5dp"
                         android:text="disaj" />
 
                 </ScrollView>
@@ -136,10 +152,10 @@
                     android:layout_margin="1dp"
                     android:background="#a6ffa6"
                     android:gravity="center"
-                    android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
                     android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp"
                     android:text="B"
                     android:textColor="@android:color/holo_green_dark"
                     android:textStyle="bold" />
@@ -153,10 +169,10 @@
                         android:id="@+id/fperguntas_txtB"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
                         android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="5dp"
                         android:text="disaj " />
 
                 </ScrollView>
@@ -194,10 +210,10 @@
                     android:layout_margin="1dp"
                     android:background="#a3ccff"
                     android:gravity="center"
-                    android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
                     android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp"
                     android:text="C"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textStyle="bold" />
@@ -211,10 +227,10 @@
                         android:id="@+id/fperguntas_txtC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
                         android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="5dp"
                         android:text="disaj " />
 
                 </ScrollView>
@@ -245,10 +261,10 @@
                     android:layout_margin="1dp"
                     android:background="#fff5a5"
                     android:gravity="center"
-                    android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
                     android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp"
                     android:text="D"
                     android:textColor="#b49000"
                     android:textStyle="bold" />
@@ -262,10 +278,10 @@
                         android:id="@+id/fperguntas_txtD"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
                         android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="5dp"
                         android:text="disaj " />
 
                 </ScrollView>

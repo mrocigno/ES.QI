@@ -21,6 +21,7 @@
         <activity android:name=".Main.MainActivity" />
         <activity
             android:name=".Main.PerguntasActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme"></activity>
     </application>
