@@ -1,5 +1,7 @@
 package com.example.matheus.esqi.Main
 
+import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 
 import android.support.v4.app.Fragment
@@ -7,8 +9,8 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
 import android.support.v4.view.ViewPager
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.example.matheus.esqi.Connect.Connects
 import com.example.matheus.esqi.Connect.Models.DefaultModel
 import com.example.matheus.esqi.Connect.Models.PerguntasModel
@@ -24,14 +26,10 @@ import com.example.matheus.esqi.R
 
 class PerguntasActivity : AppCompatActivity() {
 
-    /**
-     * The [android.support.v4.view.PagerAdapter] that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * [android.support.v4.app.FragmentStatePagerAdapter].
-     */
+    var hit = 0
+    var missed = 0
+    var passed = 0
+
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,12 +41,16 @@ class PerguntasActivity : AppCompatActivity() {
         val con: Connects = testeRetro.create(Connects::class.java)
         con.getPerguntas().enqueue(object: Callback<DefaultModel> {
             override fun onFailure(call: Call<DefaultModel>?, t: Throwable?) {
-                Log.e("erro","asdasda", t)
+                perguntas_lnlMsg.visibility = View.VISIBLE
+                perguntas_progressBar.visibility = View.GONE
+                perguntas_btnVoltar.setOnClickListener { finish(); }
+                perguntas_btnAgain.setOnClickListener { recreate(); }
             }
             override fun onResponse(call: Call<DefaultModel>?, response: Response<DefaultModel>?) {
                 mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager, response!!.body()!!.data)
                 container.adapter = mSectionsPagerAdapter
                 perguntas_progressBar.visibility = View.GONE
+                perguntas_lnlVidas.visibility = View.VISIBLE
 
                 container.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
                     override fun onPageScrollStateChanged(p0: Int) {
@@ -84,14 +86,51 @@ class PerguntasActivity : AppCompatActivity() {
                 })
             }
         })
-
-//
-//
-//        // Set up the ViewPager with the sections adapter.
-//
     }
 
+    fun setScored(type : Int){
+        when (type){
+            1 -> {
+                hit++
+            }
+            2 -> {
+                missed++
+                when (missed){
+                    1->{
+                        fperguntas_imgHearth1.setImageDrawable(getDrawable(R.drawable.ic_favorite_border_black_24dp))
+                        fperguntas_imgHearth1.setColorFilter(Color.BLACK)
+                        fperguntas_imgBorderHearth1.setImageDrawable(getDrawable(R.drawable.ic_close_red_24dp))
+                    }
+                    2->{
+                        fperguntas_imgHearth2.setImageDrawable(getDrawable(R.drawable.ic_favorite_border_black_24dp))
+                        fperguntas_imgHearth2.setColorFilter(Color.BLACK)
+                        fperguntas_imgBorderHearth2.setImageDrawable(getDrawable(R.drawable.ic_close_red_24dp))
+                    }
+                    3->{
+                        fperguntas_imgHearth3.setImageDrawable(getDrawable(R.drawable.ic_favorite_border_black_24dp))
+                        fperguntas_imgHearth3.setColorFilter(Color.BLACK)
+                        fperguntas_imgBorderHearth3.setImageDrawable(getDrawable(R.drawable.ic_close_red_24dp))
+                    }
+                }
+            }
+            3 -> {
+                passed++
+            }
+        }
+    }
 
+    fun endQuiz(msg : String){
+        finish()
+
+        val intent = Intent(this@PerguntasActivity, EndQuizActivity::class.java)
+
+        intent.putExtra("mensagem", msg)
+        intent.putExtra("acertos", hit)
+        intent.putExtra("erros", missed)
+        intent.putExtra("passadas", passed)
+
+        startActivity(intent)
+    }
 
     /**
      * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -121,35 +160,4 @@ class PerguntasActivity : AppCompatActivity() {
             return teste2.size
         }
     }
-
-//    class PlaceholderFragment : Fragment() {
-//
-//        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-//                                  savedInstanceState: Bundle?): View? {
-//            val rootView = inflater.inflate(R.layout.fragment_deletar, container, false)
-//            rootView.section_label.text = getString(R.string.section_format, arguments?.getInt(ARG_SECTION_NUMBER))
-//            return rootView
-//        }
-//
-//        companion object {
-//            /**
-//             * The fragment argument representing the section number for this
-//             * fragment.
-//             */
-//            private val ARG_SECTION_NUMBER = "section_number"
-//
-//            /**
-//             * Returns a new instance of this fragment for the given section
-//             * number.
-//             */
-//            fun newInstance(sectionNumber: Int): deletar.PlaceholderFragment {
-//                val fragment = deletar.PlaceholderFragment()
-//                val args = Bundle()
-//                args.putInt(ARG_SECTION_NUMBER, sectionNumber)
-//                fragment.arguments = args
-//                return fragment
-//            }
-//        }
-//    }
-
 }

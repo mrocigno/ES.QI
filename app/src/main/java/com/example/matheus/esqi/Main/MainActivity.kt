@@ -16,6 +16,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, PerguntasActivity::class.java))
         }
 
+        main_txtB.setOnClickListener {
+            startActivity(Intent(this@MainActivity, Placar::class.java))
+        }
+
         main_txtD.setOnClickListener{
             finish()
         }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="bottom" android:height="3dp">
+        <shape android:shape="rectangle">
+            <gradient android:startColor="@color/dialogplus_black_overlay" android:angle="-90"/>
+        </shape>
+    </item>
+
+    <item android:bottom="3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="?colorPrimaryDark"/>
+        </shape>
+    </item>
+</layer-list>

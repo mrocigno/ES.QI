@@ -14,6 +14,25 @@ import com.orhanobut.dialogplus.ViewHolder
 
 class AlertTop {
     companion object {
+        fun CustomTopLoadingAlert(activity: Activity) : DialogPlus{
+
+            var lng : LoadingSettings? = null
+
+            val holder = ViewHolder(R.layout.alert_loading)
+            val alert = DialogPlus.newDialog(activity)
+                    .setContentHolder(holder)
+                    .setGravity(Gravity.TOP)
+                    .setOnDismissListener { lng!!.threadClose() }
+                    .create()
+
+            lng = LoadingSettings((holder.getInflatedView().findViewById(R.id.loading_txtAlert) as TextView), TextView::class.java)
+            lng.txtLoading(activity, 200, 3, "Carregando")
+
+            lng.threadStart()
+            alert.show()
+            return alert
+        }
+
         fun CustomTopSimpleAlert(activity: Activity, msg: String, img: Int, duration: Int) {
 
             val holder = ViewHolder(R.layout.alert_base)

@@ -8,10 +8,7 @@ import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import com.example.matheus.esqi.Connect.Models.PerguntasModel
 import com.example.matheus.esqi.Helpers.SoundHelper
 
@@ -59,8 +56,6 @@ open class PerguntasFragment : Fragment() {
             txtState = mView!!.fperguntas_txtState
 
             val pm: PerguntasModel = arguments?.getSerializable(ARG_SECTION_NUMBER) as PerguntasModel
-
-            mView!!.fperguntas_txtTitulo.text = pm.titulo
 
             tt = pm.pergunta
 
@@ -161,8 +156,12 @@ open class PerguntasFragment : Fragment() {
     }
 
     fun nextPage(){
-        val pager = activity!!.findViewById<ViewPager>(R.id.container)
-        pager.currentItem = pager.currentItem + 1
+        if((activity as PerguntasActivity).missed > 2){
+            (activity as PerguntasActivity).endQuiz("Ih, suas vidas acabaram :(")
+        }else{
+            val pager = activity!!.findViewById<ViewPager>(R.id.container)
+            pager.currentItem = pager.currentItem + 1
+        }
     }
 
     fun setAnswered() {
@@ -190,18 +189,27 @@ open class PerguntasFragment : Fragment() {
                 txtD.setTextColor(resources.getColor(android.R.color.holo_red_dark))
             }
 
+            txtA.isEnabled = false
+            txtB.isEnabled = false
+            txtC.isEnabled = false
+            txtD.isEnabled = false
+
             when (state) {
                 "Acertou" -> {
-                    imgState.setImageDrawable(resources.getDrawable(R.drawable.ic_check_green_24dp))
-                    txtState.setTextColor(resources.getColor(android.R.color.holo_green_dark))
+                    imgState.setImageDrawable(activity!!.getDrawable(R.drawable.ic_check_green_24dp))
+                    txtState.setTextColor(activity!!.getColor(android.R.color.holo_green_dark))
+                    (activity as PerguntasActivity).setScored(1)
                 }
                 "Errou" -> {
-                    imgState.setImageDrawable(resources.getDrawable(R.drawable.ic_close_red_24dp))
-                    txtState.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+                    imgState.setImageDrawable(activity!!.getDrawable(R.drawable.ic_close_red_24dp))
+                    txtState.setTextColor(activity!!.getColor(android.R.color.holo_red_dark))
+                    (activity as PerguntasActivity).setScored(2)
                 }
                 "Não respondeu" -> {
-                    imgState.setImageDrawable(resources.getDrawable(R.drawable.ic_close_red_24dp))
-                    txtState.setTextColor(resources.getColor(android.R.color.holo_red_dark))
+                    imgState.setImageDrawable(activity!!.getDrawable(R.drawable.ic_close_red_24dp))
+                    imgState.setColorFilter(activity!!.getColor(android.R.color.holo_orange_light))
+                    txtState.setTextColor(activity!!.getColor(android.R.color.holo_orange_light))
+                    (activity as PerguntasActivity).setScored(3)
                 }
             }
             txtState.text = state

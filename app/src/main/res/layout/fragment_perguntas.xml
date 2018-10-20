@@ -16,19 +16,10 @@
         android:text="@string/hello_blank_fragment"
         android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/fperguntas_txtTitulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TITULO"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="1"
         android:background="@drawable/background_questions"
@@ -99,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="1dp"
-                    android:background="#ff9393"
+                    android:background="@color/a_background"
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -150,7 +141,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="1dp"
-                    android:background="#a6ffa6"
+                    android:background="@color/b_backgound"
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
