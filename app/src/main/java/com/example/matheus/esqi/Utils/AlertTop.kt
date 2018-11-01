@@ -23,6 +23,7 @@ class AlertTop {
                     .setContentHolder(holder)
                     .setGravity(Gravity.TOP)
                     .setOnDismissListener { lng!!.threadClose() }
+                    .setOnCancelListener { lng!!.threadClose() }
                     .create()
 
             lng = LoadingSettings((holder.getInflatedView().findViewById(R.id.loading_txtAlert) as TextView), TextView::class.java)

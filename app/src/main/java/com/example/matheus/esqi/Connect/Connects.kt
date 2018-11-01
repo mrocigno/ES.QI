@@ -2,6 +2,7 @@ package com.example.matheus.esqi.Connect
 
 import com.example.matheus.esqi.Connect.Models.DefaultModel
 import com.example.matheus.esqi.Connect.Models.Placar
+import com.example.matheus.esqi.Connect.Models.PlacarLideresModel
 import com.example.matheus.esqi.Connect.Models.PlacarReceiveModel
 import retrofit2.Call
 import retrofit2.http.*
@@ -9,6 +10,9 @@ import retrofit2.http.*
 interface Connects {
     @GET("ws/wsGetPerguntas.php")
     fun getPerguntas(): Call<DefaultModel>
+
+    @GET("ws/wsGetPlacar.php")
+    fun getPlacar(): Call<PlacarLideresModel>
 
     @FormUrlEncoded
     @POST("ws/wsAddPlacar.php")
