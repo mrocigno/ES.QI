@@ -77,14 +77,14 @@
                     android:layout_gravity="center">
 
                     <TextView
-                        android:id="@+id/main_txtA"
+                        android:id="@+id/main_txtC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:paddingTop="5dp"
-                        android:text="Iniciar" />
+                        android:text="Material Teorico" />
 
                 </ScrollView>
 
@@ -127,14 +127,14 @@
                     android:layout_gravity="center">
 
                     <TextView
-                        android:id="@+id/main_txtB"
+                        android:id="@+id/main_txtA"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:paddingTop="5dp"
-                        android:text="Placar de líderes" />
+                        android:text="Iniciar" />
 
                 </ScrollView>
 
@@ -176,14 +176,14 @@
                     android:layout_gravity="center">
 
                     <TextView
-                        android:id="@+id/main_txtC"
+                        android:id="@+id/main_txtB"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:paddingTop="5dp"
-                        android:text="Sobre " />
+                        android:text="Placar de líderes" />
 
                 </ScrollView>
 

@@ -25,7 +25,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".Main.EndQuizActivity" />
-        <activity android:name=".Main.Placar"/>
+        <activity android:name=".Main.Placar" />
+        <activity android:name=".Main.MaterialActivity"></activity>
     </application>
 
 </manifest>

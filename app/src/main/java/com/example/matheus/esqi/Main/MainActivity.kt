@@ -20,6 +20,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, Placar::class.java))
         }
 
+        main_txtC.setOnClickListener {
+            startActivity(Intent(this@MainActivity, MaterialActivity::class.java))
+        }
+
         main_txtD.setOnClickListener{
             finish()
         }
